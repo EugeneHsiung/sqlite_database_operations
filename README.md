@@ -17,15 +17,25 @@ The first part was to do basic exploratory analysis using Python, focusing on da
 3. ```nyp['Gross Charges'].value_counts()``` and ```sbu['Gross charge'].value_counts()``` was used to find the frequency counts of each of the unique field in the database
 4. ```nyp.isnull().sum()``` and ```sbu.isnull().sum()``` was used to check for missing values in the databases
 5. ```nyp.columns = nyp.columns.str.strip()``` and ```sbu.columns = sbu.columns.str.strip()``` was used to remove leading and trailing white space from a column
-6. Clean column names such as removing white spaces and special characters
+6. Clean column names such as removing white spaces and special characters:
 
- ```def clean_column_names(df):
+```
+# Function to remove white space and special characters from a value
+def clean_column_names(df):
+    # Define a helper function to clean column names
     def clean_name(name):
         cleaned_name = re.sub(r'[^a-zA-Z0-9]', '_', name)
         return cleaned_name.lower()
+
+    # Rename columns using the helper function
+    # This is using a list comprehension - e.g., we have a list to the right of the equals sign,
+    # and inside the list, we are applying our function, for every col (or X) that exists in df.columns
     df.columns = [clean_name(col) for col in df.columns]
     return df
-    nyp_clean = clean_column_names(nyp_clean)```
+
+# Apply the clean_column_names function to all columns
+nyp_clean = clean_column_names(nyp_clean)
+```
 
 
 
