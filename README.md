@@ -54,8 +54,9 @@ nyp_clean = clean_column_names(nyp_clean)
         price REAL
     )
 ''')
-
 conn.commit()```
+
+
 4. Confirm that the table named data has been created within health.db
 
 ```c.execute('''
