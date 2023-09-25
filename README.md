@@ -46,7 +46,8 @@ nyp_clean = clean_column_names(nyp_clean)
 1. importing packages: ```from sqlalchemy import create_engine``` and ```import sqlite3```
 2. Creating a local database named health.db ```conn = sqlite3.connect('health.db')``` and ```c = conn.cursor()```  
 3. Creating a table named data
-   ```c.execute('''
+```
+   c.execute('''
     CREATE TABLE IF NOT EXISTS data (
         patient_name TEXT,
         gender TEXT,
@@ -54,22 +55,26 @@ nyp_clean = clean_column_names(nyp_clean)
         price REAL
     )
 ''')
-conn.commit()```
+conn.commit()
+```
 
 
 4. Confirm that the table named data has been created within health.db
 
-```c.execute('''
+```
+c.execute('''
   SELECT name
   FROM sqlite_master
   WHERE type='table';
   ''')
-c.fetchall()```
+c.fetchall()
+```
 
 
 5. Inserting data:
 
-```#inserting data
+```
+#inserting data
 c.execute('''
     INSERT INTO data (patient_name, gender, diagnosis, price)
     VALUES
@@ -77,24 +82,26 @@ c.execute('''
     ('Jasmine Smith', 'Female', 'Lung Cancer', 2000)
 ''')
 
-conn.commit()```
+conn.commit()
+```
 
 
 
 6. Confirm that data has been added to the table
 
-
-```c.execute('''
+```
+c.execute('''
   SELECT * FROM data;
 ''')
 
-print(c.fetchall())```
+print(c.fetchall())
+```
 
 
 7.  Create an engine to connect to our sqlite DB:
 
-
-```engine = create_engine('sqlite:///health.db')```
+```
+engine = create_engine('sqlite:///health.db')```
 
 
 8. Display the data in chart:
@@ -124,7 +131,8 @@ response = pd.read_sql(query, conn)       #execute query in "response"
 
 conn.close()
 
-response```
+response
+```
 
 
 
