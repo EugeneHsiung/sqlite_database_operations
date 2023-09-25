@@ -13,7 +13,7 @@ These columns were listed through codes ```print(nyp.columns)``` and ```print(sb
 The first part was to do basic exploratory analysis using Python, focusing on data distribution, missing values, and basic statistics.
 
 1. ```nyp.describe()``` and ```sbu.describe()``` was used to find the statistics for numerical columns
-2. ```print(nyp.columns)`` and ```print(sbu.columns)``` was used to find the columns lists
+2. ```print(nyp.columns)``` and ```print(sbu.columns)``` was used to find the columns lists
 3. ```nyp['Gross Charges'].value_counts()``` and ```sbu['Gross charge'].value_counts()``` was used to find the frequency counts of each of the unique field in the database
 4. ```nyp.isnull().sum()``` and ```sbu.isnull().sum()``` was used to check for missing values in the databases
 5. ```nyp.columns = nyp.columns.str.strip()``` and ```sbu.columns = sbu.columns.str.strip()``` was used to remove leading and trailing white space from a column
