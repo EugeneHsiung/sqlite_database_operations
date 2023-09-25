@@ -18,13 +18,14 @@ The first part was to do basic exploratory analysis using Python, focusing on da
 4. ```nyp.isnull().sum()``` and ```sbu.isnull().sum()``` was used to check for missing values in the databases
 5. ```nyp.columns = nyp.columns.str.strip()``` and ```sbu.columns = sbu.columns.str.strip()``` was used to remove leading and trailing white space from a column
 6. Clean column names such as removing white spaces and special characters
+
  ```def clean_column_names(df):
     def clean_name(name):
         cleaned_name = re.sub(r'[^a-zA-Z0-9]', '_', name)
         return cleaned_name.lower()
     df.columns = [clean_name(col) for col in df.columns]
     return df
-nyp_clean = clean_column_names(nyp_clean)```
+    nyp_clean = clean_column_names(nyp_clean)```
 
 
 
