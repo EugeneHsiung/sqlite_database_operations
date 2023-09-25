@@ -101,26 +101,34 @@ print(c.fetchall())
 7.  Create an engine to connect to our sqlite DB:
 
 ```
-engine = create_engine('sqlite:///health.db')```
+engine = create_engine('sqlite:///health.db')
+```
+
 
 
 8. Display the data in chart:
 
 
-```data = pd.read_sql("select * from data;", conn)
-data```
+```
+data = pd.read_sql("select * from data;", conn)
+data
+```
+
 
 9. Use nyp dataset to put in SQLite database. Dataset is uploaded to "nyp1"
 
 
-```df = pd.read_json('https://raw.githubusercontent.com/hantswilliams/HHA_504_2023/main/WK3/data/nyp/133957095_NewYorkPresbyterianHospital_standardcharges.json')
+```
+df = pd.read_json('https://raw.githubusercontent.com/hantswilliams/HHA_504_2023/main/WK3/data/nyp/133957095_NewYorkPresbyterianHospital_standardcharges.json')
 conn = sqlite3.connect('health.db')     # connect to the SQLite database```
-df.to_sql('nyp1', conn, if_exists='replace')```
+df.to_sql('nyp1', conn, if_exists='replace')
+```
 
 10.  Running the query and showing results:
 
 
-```query = """
+```
+query = """
     SELECT *
     FROM nyp1
     WHERE "Rev Code" = '0260'
