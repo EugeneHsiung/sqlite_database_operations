@@ -62,11 +62,7 @@ conn.commit()```
   FROM sqlite_master
   WHERE type='table';
   ''')
-
-c.fetchall()
-
-#for value in c.fetchall():
-#print(value)```
+c.fetchall()```
 
 5. Inserting data:
 ```#inserting data
